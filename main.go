@@ -117,4 +117,90 @@ func main() {
 	fmt.Printf("%q", aFormatOutput)
 	var floatFormatOutput float32 = 22.123
 	fmt.Printf("%9.2f", floatFormatOutput)
+
+	//===========================================
+	//Массивы и срезы
+
+	//Массивы
+	//Объявление массива
+	//var aArray [3]int
+
+	var aArray [3]int = [3]int{1, 2, 3}
+	//bArray := [3]int{1, 2, 3}
+	//cArray := [...]int{1, 2, 3} // ... многоточие вместо указания длины массива, Go возьмет длину массива при инициализации
+	//dArray := [3]int{1: 12} // int{1: 12} позволяет указанному индексу присвоить значение по умолчанию
+	fmt.Println(aArray)
+
+	// Сравнение массивов: Можно сравнить массивы только если они одного типа (массивы одинаковой длины и содержат элементы одного типа)
+	// a := [3]int{1, 2, 3}
+	// b := [3]int{1, 2, 3}
+	// c := [3]int{3, 2, 1}
+	// fmt.Println(a == b) // true
+	// fmt.Println(a == c) // false
+
+	//Итерация массива
+	//Можно использовать стандартный вариант for
+	//Так же есть вариант с range
+
+	var iArray = [5]int{1, 2, 3, 4, 5}
+
+	for idx, elem := range iArray {
+		fmt.Printf("Elem with index %d: %d\n", idx, elem)
+	}
+	//Range возвращает два объекта: индекс элемента и копию значения элемента
+	//Можно опустить любой из этих объектов если указать символ "_", также если мы хотис использовать только индекс то указание элемента можно не указывать вовсе
+	for idx := range iArray { //Здесь мы не указываем временную переменную для элемента массива, и получаем только индекс
+		fmt.Println(iArray[idx])
+	}
+
+	for _, elem := range iArray { //Здесь используем только элемент, опуская индекс
+		fmt.Println(elem)
+	}
+	/*
+		Необходимо запомнить, что в качестве второго значения range
+		возвращает копию элемента массива, это может быть важно,
+		 если в цикле мы хотим изменить массив.
+		 В этом случае мы должны обращаться к элементам массива по индексу:
+		for idx := range a {
+			a[idx] = 100
+		}
+	*/
+
+	//Срезы
+	var iSlice = []int{1: 12} // Создание среза с явным указанием значения по индексу
+	var iSliceEmpty []int     // Создание пустого среза
+	fmt.Println(iSlice, len(iSlice), cap(iSlice))
+	fmt.Println(iSliceEmpty, len(iSliceEmpty), cap(iSliceEmpty))
+
+	var sliceMake = make([]int, 10, 10) //Создание среза через метод make([]T, length, capacity)
+	fmt.Println(sliceMake)
+
+	//Оператор среза s[i:j] создает из последовательности s новый срещу который содержит элементы посл-ти s c i по j-1
+	//Если не указан i то по умолчание берется значение 0, если не указан j то берется последний элемент последовательности
+	sliceInitialUsers := [8]string{"Bob", "Alice", "Kate", "Sam", "Tom", "Paul", "Mike", "Robert"}
+	users1 := sliceInitialUsers[2:6]
+	fmt.Println(users1)
+
+	//Стандартные методы работы со срезами
+	//append(slice []Type, elems...Type) []Type
+	sliceAppend := []int{1, 2, 3}
+	sliceAppend = append(sliceAppend, 4, 5)
+	//baseArray := [10]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	//baseSlice := baseArray[5:8]
+
+	//pointer := fmt.Sprintf("%p", baseSlice)
+
+	removeArray := []int{1, 2, 3, 4, 5}
+	removeArray = append(removeArray[0:2], removeArray[3:]...) //"удаление" элемента массива, на самом деле создание
+	fmt.Println(removeArray)
+
+	/*
+		func copy(dst, src []Type) int
+		Copy принимает срез-назначение и срез источник, а возвращает число скопированных элементов:
+
+		a := []int{1, 2, 3}
+		b := make([]int, 3, 3)
+		n := copy(b, a)
+	*/
+
 }

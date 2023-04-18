@@ -2,23 +2,99 @@ package main
 
 import (
 	"fmt"
-	"math"
+	//"math"
 	//"strings"
 )
 
 func main() {
 
-	var num float64
-	fmt.Scan(&num)
+	var inputNum int
 
-	if num > 0 && num < 10000 {
-		num = math.Pow(num, 2)
-		fmt.Printf("%.4f", num)
-	} else if num > 10000 {
-		fmt.Printf("%e", num)
-	} else if num <= 0 {
-		fmt.Printf("число %2.2f не подходит", num)
+	fmt.Scan(&inputNum)
+
+	var array = make([]int, inputNum, inputNum)
+
+	for i := range array {
+		fmt.Scan(&array[i])
+
+		if i%2 == 0 {
+			fmt.Printf("%v ", array[i])
+		}
 	}
+
+	for i := range array {
+		if i%2 == 0 {
+			fmt.Printf("%v ", array[i])
+		}
+	}
+
+	/*
+		array := [5]int{}
+		var a int
+		for i := 0; i < 5; i++ {
+			fmt.Scan(&a)
+			array[i] = a
+		}
+
+		var max int = array[0]
+		for idx := range array {
+			if array[idx] > max {
+				max = array[idx]
+			}
+
+		}
+
+		fmt.Println(max)
+		fmt.Println(array)
+	*/
+
+	/*
+		var inputNum int
+		fmt.Scan(&inputNum)
+		uSlice := make([]int, inputNum, inputNum)
+
+		for i := range uSlice {
+			fmt.Scan(&uSlice[i])
+		}
+
+		fmt.Println(uSlice[3])
+	*/
+
+	/*
+		var num uint8
+		var a, b uint8
+		var workArray = [10]uint8{}
+
+		for i := 0; i < 10; i++ {
+			fmt.Scan(&num)
+			workArray[i] = num
+		}
+
+		for i := 0; i < 3; i++ {
+			fmt.Scan(&a, &b)
+
+			workArray[a], workArray[b] = workArray[b], workArray[a]
+
+		}
+
+		for _, value := range workArray {
+			fmt.Printf("%v ", value)
+		}
+	*/
+
+	/*
+		var num float64
+		fmt.Scan(&num)
+
+		if num > 0 && num < 10000 {
+			num = math.Pow(num, 2)
+			fmt.Printf("%.4f", num)
+		} else if num > 10000 {
+			fmt.Printf("%e", num)
+		} else if num <= 0 {
+			fmt.Printf("число %2.2f не подходит", num)
+		}
+	*/
 
 	/*
 		var (
