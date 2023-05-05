@@ -22,12 +22,6 @@ func main() {
 		}
 	}
 
-	for i := range array {
-		if i%2 == 0 {
-			fmt.Printf("%v ", array[i])
-		}
-	}
-
 	/*
 		array := [5]int{}
 		var a int
