@@ -3,13 +3,20 @@ package main
 import "fmt"
 
 func main() {
+	var a, b int
+	fmt.Scan(&a, &b)
 
-	var n int
-	fmt.Scan(&n)
+	for i := a; i < b; i++ {
+		if i%7 == 0 {
+			fmt.Println(i)
+		}
+	}
+	// var n int
+	// fmt.Scan(&n)
 
-	digitRoot := 1 + ((n - 1) % 9) // dr(n) = 1 + ((n - 1) % 9) - формула вычисления цифрового корня
+	// digitRoot := 1 + ((n - 1) % 9) // dr(n) = 1 + ((n - 1) % 9) - формула вычисления цифрового корня
 
-	fmt.Println(digitRoot)
+	// fmt.Println(digitRoot)
 
 	/*
 			//Найдите количество минимальных элементов в последовательности.
