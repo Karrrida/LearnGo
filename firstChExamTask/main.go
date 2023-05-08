@@ -3,18 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	var a, b int
 
-	fmt.Scan(&a, &b)
+	var n int
 
-	for i := b; i >= a; i-- {
-		if i%7 == 0 {
-			fmt.Println(i)
-			break
-		} else if i == a && i%7 != 0 {
-			fmt.Println("NO")
-		}
+	switch {
+	case (n > 4 && n <= 20) || (n%10 > 4 && n%10 < 9) || n%10 == 0:
+		fmt.Println(n, "korov")
+	case n == 1 || n%10 == 1:
+		fmt.Println(n, "korova")
+	case (n > 1 && n <= 4) || (n%10 > 1 && n%10 < 5):
+		fmt.Println(n, "korovy")
 	}
+
+	//var a, b int
+	//
+	//fmt.Scan(&a, &b)
+	//
+	//for i := b; i >= a; i-- {
+	//	if i%7 == 0 {
+	//		fmt.Println(i)
+	//		break
+	//	} else if i == a && i%7 != 0 {
+	//		fmt.Println("NO")
+	//	}
+	//}
 	// var n int
 	// fmt.Scan(&n)
 
