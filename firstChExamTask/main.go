@@ -4,11 +4,15 @@ import "fmt"
 
 func main() {
 	var a, b int
+
 	fmt.Scan(&a, &b)
 
-	for i := a; i < b; i++ {
+	for i := b; i >= a; i-- {
 		if i%7 == 0 {
 			fmt.Println(i)
+			break
+		} else if i == a && i%7 != 0 {
+			fmt.Println("NO")
 		}
 	}
 	// var n int
