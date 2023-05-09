@@ -1,19 +1,42 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 
-	var n int
+	var N int
+	var i float64 = 0
+	fmt.Scan(&N)
 
-	switch {
-	case (n > 4 && n <= 20) || (n%10 > 4 && n%10 < 9) || n%10 == 0:
-		fmt.Println(n, "korov")
-	case n == 1 || n%10 == 1:
-		fmt.Println(n, "korova")
-	case (n > 1 && n <= 4) || (n%10 > 1 && n%10 < 5):
-		fmt.Println(n, "korovy")
+	for ; ; i++ {
+		var pow float64 = i
+		var elem float64 = 2
+		elemInPow := int(math.Pow(elem, pow))
+
+		if elemInPow <= N {
+			fmt.Print(elemInPow, " ")
+		} else if elemInPow > N {
+			break
+		}
 	}
+
+	/*
+		var n int
+
+		fmt.Scan(&n)
+
+		switch {
+		case (n > 4 && n <= 20) || (n%10 > 4 && n%10 < 9) || n%10 == 0:
+			fmt.Println(n, "korov")
+		case n == 1 || n%10 == 1:
+			fmt.Println(n, "korova")
+		case (n > 1 && n <= 4) || (n%10 > 1 && n%10 < 5):
+			fmt.Println(n, "korovy")
+		}
+	*/
 
 	//var a, b int
 	//
